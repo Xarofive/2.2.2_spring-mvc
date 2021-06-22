@@ -20,26 +20,14 @@ public class CarService {
     }
 
     public List<Car> returnCars(int count) {
-        switch (count) {
-            case 0:
-                cars.clear();
-                break;
-            case 1:
-                cars = cars.subList(0, 1);
-                break;
-            case 2:
-                cars = cars.subList(0, 2);
-                break;
-            case 3:
-                cars = cars.subList(0, 3);
-                break;
-            case 4:
-                cars = cars.subList(0, 4);
-                break;
-            default:
-                cars = cars.subList(0, 5);
-                break;
+        List<Car> returnCars = new ArrayList<>();
+        if (count <= cars.size()) {
+            for (int i = 0; i < count; i++) {
+                returnCars.add(cars.get(i));
+            }
+        } else if (count >= cars.size()) {
+            return cars;
         }
-        return cars;
+        return returnCars;
     }
 }
