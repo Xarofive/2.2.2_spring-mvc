@@ -1,12 +1,16 @@
 package web.model;
 
+import java.util.Objects;
+
 public class Car {
 
+    private Long id;
     private String manufacturer;
     private String model;
-    private int registrationNumber;
+    private Integer registrationNumber;
 
-    public Car(String manufacturer, String model, int registrationNumber) {
+    public Car(Long id, String manufacturer, String model, Integer registrationNumber) {
+        this.id = id;
         this.manufacturer = manufacturer;
         this.model = model;
         this.registrationNumber = registrationNumber;
@@ -14,6 +18,14 @@ public class Car {
 
     public Car() {
 
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getManufacturer() {
@@ -32,11 +44,34 @@ public class Car {
         this.model = model;
     }
 
-    public int getRegistrationNumber() {
+    public Integer getRegistrationNumber() {
         return registrationNumber;
     }
 
-    public void setRegistrationNumber(int registrationNumber) {
+    public void setRegistrationNumber(Integer registrationNumber) {
         this.registrationNumber = registrationNumber;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return Objects.equals(id, car.id) && Objects.equals(manufacturer, car.manufacturer) && Objects.equals(model, car.model) && Objects.equals(registrationNumber, car.registrationNumber);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, manufacturer, model, registrationNumber);
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", manufacturer='" + manufacturer + '\'' +
+                ", model='" + model + '\'' +
+                ", registrationNumber=" + registrationNumber +
+                '}';
     }
 }
