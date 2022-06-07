@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import web.service.CarServiceIml;
 
 @Controller
-public class CarContoller {
+public class CarController {
 
     private final CarServiceIml carServiceIml;
 
     @Autowired
-    public CarContoller(CarServiceIml carServiceIml) {
+    public CarController(CarServiceIml carServiceIml) {
         this.carServiceIml = carServiceIml;
     }
 

@@ -27,7 +27,7 @@ public class CarDaoImpl implements CarDao{
             for (int i = 0; i < count; i++) {
                 returnCars.add(carList.get(i));
             }
-        } else if (count >= carList.size()) {
+        } else {
             return carList;
         }
         return returnCars;
